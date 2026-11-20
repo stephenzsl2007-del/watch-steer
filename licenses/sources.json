@@ -1,0 +1,52 @@
+{
+  "Python-LICENSE.txt": {
+    "source": "License included with the Python 3.12.14 runtime",
+    "license": "PSF",
+    "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf"
+  },
+  "OpenSSL-LICENSE.txt": {
+    "source": "https://raw.githubusercontent.com/openssl/openssl/openssl-3.5.8/LICENSE.txt",
+    "license": "Apache-2.0",
+    "sha256": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a"
+  },
+  "OpenSSL-AUTHORS.txt": {
+    "source": "https://raw.githubusercontent.com/openssl/openssl/openssl-3.5.8/AUTHORS.md",
+    "license": "Apache-2.0",
+    "sha256": "b9f638dfc06b59c2d3b808186c3b30f713805a5db390f5b77b1703ac58acb83e"
+  },
+  "libffi-LICENSE.txt": {
+    "source": "https://raw.githubusercontent.com/libffi/libffi/master/LICENSE",
+    "license": "MIT",
+    "sha256": "17b64dc60f3b6897a60f971e288b973f655c2edcdf08b25f3c3dd5549857881c"
+  },
+  "bzip2-LICENSE.txt": {
+    "source": "https://raw.githubusercontent.com/libarchive/bzip2/bzip2-1.0.8/LICENSE",
+    "license": "bzip2 license",
+    "sha256": "c6dbbf828498be844a89eaa3b84adbab3199e342eb5cb2ed2f0d4ba7ec0f38a3"
+  },
+  "mpdecimal-LICENSE.txt": {
+    "source": "https://www.bytereef.org/software/mpdecimal/releases/mpdecimal-4.0.0.tar.gz",
+    "license": "BSD-2-Clause",
+    "sha256": "2713324211652ce4a60e6e21e54f9dc3004299e591b0933a352f1a89c5fb53c2"
+  },
+  "Expat-LICENSE.txt": {
+    "source": "https://raw.githubusercontent.com/libexpat/libexpat/R_2_8_3/expat/COPYING",
+    "license": "MIT",
+    "sha256": "31b15de82aa19a845156169a17a5488bf597e561b2c318d159ed583139b25e87"
+  },
+  "liblzma-LICENSE.txt": {
+    "source": "https://raw.githubusercontent.com/tukaani-project/xz/master/COPYING.0BSD",
+    "license": "0BSD",
+    "sha256": "0b01625d853911cd0e2e088dcfb743261034a091bb379246cb25a14cc4c74bf1"
+  },
+  "liblzma-LICENSING.txt": {
+    "source": "https://raw.githubusercontent.com/tukaani-project/xz/master/COPYING",
+    "license": "Upstream component licensing overview; XZ command-line tools are not bundled",
+    "sha256": "616a3ad264ce29b8f1cb97e53037b139d406899ca8d1f799651e17bfa09830b8"
+  },
+  "SQLite-PUBLIC-DOMAIN.txt": {
+    "source": "https://www.sqlite.org/copyright.html",
+    "license": "Public domain",
+    "sha256": "424085fbceac4b74c4db7e9c1ad5cded0c845b9a3c4dcc716f977b221da269e2"
+  }
+}

@@ -1,0 +1,3 @@
+web/vendor/** linguist-vendored
+web/assets/** linguist-vendored
+watch/Assets.xcassets/** linguist-generated

@@ -45,10 +45,11 @@ info=dict(CFBundleExecutable='WatchSteerMac',CFBundleIdentifier='com.watchsteer.
 (contents/'Info.plist').write_bytes(plistlib.dumps(info))
 licenses=resources/'Licenses';licenses.mkdir()
 for source,name in [(root/'LICENSE','WatchSteer-MIT.txt'),(root/'THIRD_PARTY_NOTICES.md','THIRD_PARTY_NOTICES.md'),
-                    (root/'licenses/Python-LICENSE.txt','Python-LICENSE.txt'),
                     (root/'web/vendor/THREE-LICENSE.txt','Three-MIT.txt'),
                     (root/'web/vendor/CANNON-LICENSE.txt','cannon-es-MIT.txt')]:
     shutil.copy2(source,licenses/name)
+for source in (root/'licenses').iterdir():
+    if source.is_file(): shutil.copy2(source,licenses/source.name)
 dist=importlib.metadata.distribution('pyinstaller')
 copying=next((dist.locate_file(p) for p in dist.files if str(p).endswith('licenses/COPYING.txt')),None)
 if copying is None: raise SystemExit('PyInstaller license is missing')

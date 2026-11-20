@@ -12,3 +12,7 @@ The root MIT license covers original WatchSteer code. It does not replace the fo
 | Playwright, development only | 1.62.1 | Apache-2.0 | https://github.com/microsoft/playwright/blob/main/LICENSE |
 
 The standalone build copies runtime notices into the app and retains engine notices. Playwright, its browser binaries and recording utilities are not distributed in the app. Procedural vehicles and scenery geometry are original WatchSteer code. Manufacturer names identify visual inspiration; no manufacturer logos or downloaded vehicle meshes are used. No Slow Roads source code or assets are included.
+
+## Libraries statically linked in the public Python runtime
+
+The bundled Python library also includes OpenSSL 3.5.8 (Apache-2.0), Expat 2.8.3 (MIT), mpdecimal 4.0.0 (BSD-2-Clause), libffi (MIT), bzip2 (bzip2 license), liblzma (0BSD / public-domain portions) and SQLite 3.53.1 (public domain). Their upstream license/copyright records are retained in `licenses/` and copied into the app's `Contents/Resources/Licenses/`. `licenses/sources.json` records provenance and file checksums. XZ command-line utilities and their GPL code are not bundled. macOS system libraries are provided by the operating system.
