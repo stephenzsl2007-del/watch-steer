@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WatchSteer · 手腕即方向盘</title><link rel="icon" href="./brand/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="./style.css"><script defer src="./app.js"></script></head>
+<body>
+<header><a href="/" class="brand"><img class="brand-icon" src="./brand/mark.svg" alt="WatchSteer 标志"> WATCHSTEER <small>实验室 / 01</small></a><span class="tag">APPLE WATCH × WEB</span></header>
+<main>
+  <section class="intro"><div class="eyebrow">WATCHSTEER / DRIVE 01</div><h1>穿过山林，驶向高地。</h1><p>雨后的山路、云隙间的阳光，还有远处的石屋村庄。手腕掌握方向，公路带你前行。</p></section>
+  <section class="drive-shell" aria-label="高地山路驾驶场景">
+    <div class="drive-toolbar"><div><span class="drive-badge">01</span> HIGHLAND ROAD <small>高地山路</small></div><span id="drive-source">等待手表连接</span></div>
+    <div id="drive-scene" class="drive-scene">
+      <div class="drive-location"><span>FREE ROAM / 自由驾驶</span><b id="drive-road">松林夹道</b><small id="car-view-hint" hidden>拖动环绕 · 滚轮缩放</small></div>
+      <div id="drive-overlay" class="drive-overlay"><div><span class="drive-overline">一条公路，一点自由。</span><h2 id="drive-title">松林夹道，等你出发。</h2><p id="drive-description">自动巡航 · 手腕转向。把方向盘的动作，带到路上。</p><div class="drive-actions"><button id="drive-start">开始驾驶</button><button id="drive-demo" class="ghost">键盘试驾</button></div><small>试驾使用 ← → 或下方转向滑杆，输入会明确标为模拟。</small></div></div>
+      <div class="drive-hud"><div><strong id="drive-speed">0</strong><span>KM/H · 自动巡航</span></div><div class="drive-trip"><b id="drive-distance">0.00</b><span>KM · 本次旅程</span></div><div class="drive-hint">轻转手腕，沿公路前行。<small id="drive-limit">弯前自动减速 · 采样中断时暂停</small></div></div>
+    </div>
+    <div class="vehicle-strip" aria-label="经典车库">
+      <div class="vehicle-caption"><span id="car-brand">FERRARI / 1987</span><b id="car-name">Ferrari F40</b><small id="car-detail">楔形车身 · 高位尾翼 · 五辐轮毂</small></div>
+      <div class="vehicle-options"><label class="sr-only" for="drive-car">选择车型</label><select id="drive-car" aria-label="选择车型"><optgroup label="Ferrari"><option value="f40">Ferrari F40 · 1987</option><option value="250gto">Ferrari 250 GTO · 1962</option></optgroup><optgroup label="Aston Martin"><option value="db5">Aston Martin DB5 · 1963</option><option value="db9">Aston Martin DB9 · 2004</option></optgroup></select><div class="paint-options" role="group" aria-label="选择车漆"><button type="button" class="paint-swatch" data-paint="#c82324" aria-label="经典红" title="经典红"></button><button type="button" class="paint-swatch" data-paint="#27554b" aria-label="竞速绿" title="竞速绿"></button><button type="button" class="paint-swatch" data-paint="#b5b8ac" aria-label="香槟银" title="香槟银"></button><button type="button" class="paint-swatch" data-paint="#203c59" aria-label="午夜蓝" title="午夜蓝"></button></div><button id="drive-inspect" class="ghost" type="button">查看车辆</button></div>
+    </div>
+    <div class="drive-controls"><span>直道提速，弯前减速。</span><div><label class="sr-only" for="drive-route">选择路段</label><select id="drive-route" aria-label="选择路段"><option value="0">林间起点</option><option value="0.27">石楠山口</option><option value="0.49">高地长风</option><option value="0.73">石屋村庄</option></select><button id="drive-watch" class="ghost native-mode-switch" type="button">使用手表</button><button id="drive-quality" class="ghost">画质：高清</button><button id="drive-pause" class="ghost">继续</button><button id="drive-light" class="ghost">光照：雨后晴隙</button><button id="drive-camera" class="ghost">近景视角</button><button id="drive-reset" class="ghost">回到起点</button></div></div>
+  </section>
+  <section class="console" aria-label="转向可视化">
+    <div class="console-top"><span><i id="led"></i><b id="status" role="status">等待连接</b></span><span id="mode-label">LIVE TELEMETRY</span></div>
+    <div class="stage">
+      <div class="grid-floor"></div><div class="halo"></div>
+      <div class="axis-label left">LEFT / −1</div><div class="axis-label right">RIGHT / +1</div>
+      <div class="perspective"><div id="wheel" class="wheel" role="img" aria-label="三维方向盘，当前回正"><div class="rim"></div><div class="marker"></div><div class="spoke one"></div><div class="spoke two"></div><div class="spoke three"></div><div class="hub"><img src="./brand/mark.svg" alt="WatchSteer"></div></div></div>
+      <div class="readout"><span id="angle">0.0<span>°</span></span><small>方向盘显示角 · 转向值 × 120°</small></div>
+    </div>
+    <div class="bar-area"><span>−1.00</span><div class="bar"><div class="zero"></div><div id="bar-fill"></div><div id="bar-dot"></div></div><span>+1.00</span></div>
+    <div class="metrics">
+      <div><small>连续转向</small><strong id="steering">0.000</strong><em>归一化输出</em></div>
+      <div><small>姿态采样</small><strong id="sample-hz">—</strong><em>Hz · 手表实测</em></div>
+      <div><small>接收频率</small><strong id="ingest-hz">—</strong><em>Hz · 服务端实测</em></div>
+      <div><small>手表 ↔ 后端</small><strong id="watch-rtt">—</strong><em>ms · 上次请求 RTT</em></div>
+    </div>
+  </section>
+  <aside class="sidebar">
+    <section class="card pairing"><div class="eyebrow">01 / 连接设备</div><h2>接上你的方向盘</h2><p>在 Mac 接收器中点击「打开方向盘网页」即可自动连接。手表点击「连接电脑」并选择附近的 Mac。下方令牌输入仅供手动连接。</p><form id="pair-form"><label for="token">配对令牌</label><div class="input-row"><input id="token" type="password" autocomplete="off" placeholder="粘贴 Mac 接收器复制的令牌" required minlength="24"><button type="submit">连接 ↗</button></div></form><p id="pair-message" role="status">请从 Mac 接收器打开网页以自动连接。</p><div class="endpoint"><small>电脑预览地址 · 不填入手表</small><code id="endpoint"></code></div></section>
+    <section class="card"><div class="eyebrow">02 / 校准与转向</div><ol><li><span>01</span><div><b>保持正中</b><p>双手模拟握住方向盘，手表上点「设为正中」。</p></div></li><li><span>02</span><div><b>选择合适的转向轴</b><p>默认使用 X 轴；也可选 Y/Z，切换后重新设为正中。</p></div></li><li><span>03</span><div><b>轻转手腕</b><p>左右约 60° 达到满量程。改变握姿后重新校准。</p></div></li></ol></section>
+    <section class="card demo"><div class="demo-heading"><div><div class="eyebrow">先感受一下</div><h2>无需手表，也能预览</h2></div><label class="switch"><input id="demo" type="checkbox"><span></span><b class="sr-only">开启本机演示</b></label></div><label for="manual">拖动转向，或使用 ← →</label><input id="manual" type="range" min="-1" max="1" value="0" step="0.01" disabled><small>演示只改变当前页面。关闭后恢复真实数据。</small></section>
+  </aside>
+  <section class="diagnostics"><div><i></i>链路诊断 <span id="stream-state">未连接</span></div><span>浏览器 RTT <b id="browser-rtt">—</b> ms</span><span>服务端数据龄 <b id="age">—</b> ms</span><button id="export" type="button">导出诊断 CSV ↓</button></section>
+  <footer><span>CORE MOTION → BLUETOOTH → REALTIME VIEW</span><span>前台体验 · 断流 500 ms 后回正 · 无油门 / 换挡</span></footer>
+</main>
+</body></html>

@@ -1,0 +1,30 @@
+# Optional: copy this file to .github/workflows/checks.yml to enable GitHub Actions.
+name: Checks
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  web-and-relay:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: python tools/build_web.py
+      - run: python -m unittest discover -s tests -p 'test_*.py' -v
+      - run: python tools/check_public_tree.py
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:physics
+      - run: npm run test:browser
+  steering-and-ble:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: swiftc watch/SteeringMath.swift tests/SteeringMathTests.swift -o /tmp/watchsteer-math-tests && /tmp/watchsteer-math-tests
+      - run: swiftc shared/BLEProtocol.swift tests/BLEProtocolTests.swift -o /tmp/watchsteer-ble-tests && /tmp/watchsteer-ble-tests

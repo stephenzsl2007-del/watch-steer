@@ -1,0 +1,6 @@
+{
+  "name": "watch-steer", "version": "0.1.0-alpha.1", "private": true,
+  "description": "Turn your Apple Watch into a steering wheel.", "license": "MIT",
+  "scripts": {"test:physics": "node tests/vehicle.cjs", "test:browser": "node tests/browser.cjs && node tests/cars.cjs"},
+  "devDependencies": {"playwright": "1.62.1"}
+}
